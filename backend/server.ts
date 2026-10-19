@@ -3,13 +3,14 @@ import cors from 'cors';
 import { createClient } from '@libsql/client';
 import rateLimit from 'express-rate-limit';
 import jwt from 'jsonwebtoken';
+import 'dotenv/config';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Variables de entorno para seguridad
 const JWT_SECRET = process.env.JWT_SECRET || 'ClaveSecretaDeDesarrollo';
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin123'; // Contraseña por defecto
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'Fifa2018_123'; // Contraseña por defecto
 
 app.use(cors());
 app.use(express.json());
