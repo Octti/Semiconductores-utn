@@ -5,6 +5,7 @@ import { TriviaGame } from "./components/TriviaGame";
 import { MatchGame } from "./components/MatchGame";
 import { TimelineGame } from "./components/TimeLineGame";
 import { Recursos } from "./components/Recursos";
+import { AdminPanel } from "./components/AdminPanel";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
 
@@ -14,7 +15,7 @@ interface ScoreEntry {
 }
 
 function App() {
-  const [activeTab, setActiveTab] = useState<"jugar" | "ranking" | "recursos">(
+  const [activeTab, setActiveTab] = useState<"jugar" | "ranking" | "recursos" | "admin">(
     "jugar",
   );
   const [activeGame, setActiveGame] = useState<
@@ -142,7 +143,7 @@ function App() {
   return (
     <div className="app-wrapper">
       <nav className="navbar">
-        <div className="logo-section">
+        <div className="logo-section" onDoubleClick={() => setActiveTab('admin')} style={{cursor: 'pointer'}}>
           <div className="dots">
             <span className="dot red"></span>
             <span className="dot green"></span>
@@ -353,6 +354,7 @@ function App() {
         )}
 
         {activeTab === "recursos" && <Recursos />}
+        {activeTab === 'admin' && <AdminPanel />}
       </main>
     </div>
   );
