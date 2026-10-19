@@ -1,4 +1,10 @@
-import { useTimeline } from '../hooks/useTimeLine';
+import { useTimeline } from '../hooks/useTimeline';
+
+interface TimelineItem {
+  id: number;
+  year: number;
+  text: string;
+}
 
 interface TimelineGameProps {
   onBack: () => void;
@@ -14,7 +20,8 @@ export function TimelineGame({ onBack, onComplete }: TimelineGameProps) {
       {!tlFinished ? (
         <>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', marginBottom: '2rem' }}>
-            {tlItems.map((item, index) => (
+            {/* 2. Le asignamos los tipos a item y a index */}
+            {tlItems.map((item: TimelineItem, index: number) => (
               <div key={item.id} className="timeline-row">
                 <div className="timeline-controls">
                   <button onClick={() => moveItem(index, 'up')} disabled={index === 0}>▲</button>
