@@ -4,7 +4,7 @@ import './App.css';
 import { TriviaGame } from './components/TriviaGame';
 import { MatchGame } from './components/MatchGame';
 import { TimelineGame } from './components/TimeLineGame';
-import { Recursos } from './components/Recursos'; // <-- ACÁ IMPORTAMOS EL NUEVO COMPONENTE
+import { Recursos } from './components/Recursos'; 
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
@@ -56,7 +56,7 @@ function App() {
     const texto = `¡Logré ${globalScore} puntos en la web de la Revolución Lumínica (LED) 💡! ¿Te animás a superarme en el ranking?`;
     if (navigator.share) {
       try {
-        await navigator.share({ title: 'Semi Lux', text: texto, url: window.location.href });
+        await navigator.share({ title: 'SEMICONDUCTORES', text: texto, url: window.location.href });
       } catch (error) { console.log("Interacción de compartir cancelada", error); }
     } else {
       navigator.clipboard.writeText(`${texto} Jugá acá: ${window.location.href}`);
@@ -121,7 +121,7 @@ function App() {
                 </div>
                 {globalScore > 0 ? (
                   <button onClick={compartirPuntaje} style={{ background: 'transparent', border: '1px solid var(--accent-blue)', color: 'var(--accent-blue)', padding: '0.5rem 1rem', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold' }}>
-                     Compartir mi puntaje 🚀
+                     Compartir mi puntaje
                   </button>
                 ) : (
                   <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Jugá un minijuego primero para sumar puntos.</span>
@@ -132,7 +132,7 @@ function App() {
             <div className="games-grid">
               <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} className="game-card" onClick={() => setActiveGame('trivia')}>
                 <div className="game-icon">⚡</div>
-                <h3>Trivia Cuántica</h3>
+                <h3>Trivia Led</h3>
                 <p>8 preguntas contra reloj. Cuanto más rápido, más puntos.</p>
                 <div className="game-score">Jugar →</div>
               </motion.div>
@@ -180,7 +180,6 @@ function App() {
           </motion.div>
         )}
 
-        {/* ACÁ LLAMAMOS AL COMPONENTE NUEVO */}
         {activeTab === 'recursos' && <Recursos />} 
 
       </main>
