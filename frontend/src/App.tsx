@@ -217,7 +217,7 @@ function App() {
                 </div>
                 {globalScore > 0 ? (
                   <button className="btn-compartir" onClick={compartirPuntaje}>
-   Compartir mi puntaje 🚀
+   Compartir mi puntaje 
 </button>
                 ) : (
                   <span
